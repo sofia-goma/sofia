@@ -1,32 +1,35 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./index.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { PopupWidget }  from "@/components/PopupWidget";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-   title: "sofia",
-   description: "sofia startup to build awesome project in the local community",
+  title: "sofia",
+  description: "sofia IT startup",
 };
 
 export default function RootLayout({
-   children,
+  children,
 }: Readonly<{
-   children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-   return (
-      <html lang="en">
-         <body className={`${inter.className} h-full flex flex-col min-h-screen`}>
-            <Header />
-            <main className="flex-1 h-full">
-               {children}
-            </main>
-            <Footer />
-         </body>
-
-      </html>
-   );
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class">
+          <Navbar />
+          <div>{children}</div>
+          <Footer />
+          <PopupWidget />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }

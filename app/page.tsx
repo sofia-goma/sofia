@@ -1,15 +1,54 @@
+import { Container } from "@/components/Container";
+import { Hero } from "@/components/Hero";
+import { SectionTitle } from "@/components/SectionTitle";
+import { Benefits } from "@/components/Benefits";
+import { Video } from "@/components/Video";
+import { Testimonials } from "@/components/Testimonials";
+import { Faq } from "@/components/Faq";
+
+
+import { benefitOne, benefitTwo } from "@/components/data";
 export default function Home() {
-   return (
-      <main className="flex-1 p-8 items-center h-full lg:mt-8">
-         <div className="container mx-auto flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-bold text-center mb-8 text-blue-500">Welcome to Sofia</h1>
-            <p className="text-lg text-center mb-4">
-               We specialize in building websites, mobile applications, and desktop applications tailored to meet our customers' needs. Our expertise lies in deploying these solutions into production and leveraging technology to solve local problems.
-            </p>
-            <p className="text-lg text-center">
-            We are a team of around 20 developers, with expertise in front-end, back-end, and design, located in Goma Town, DRC.
-            </p>
-         </div>
-      </main>
-   );
+  return (
+    <Container>
+      <Hero />
+      <SectionTitle preTitle="Nextly Benefits" title="Welcome to Sofia">
+        We specialize in building websites, mobile applications, and desktop
+        applications tailored to meet our customers' needs. Our expertise lies
+        in deploying these solutions into production and leveraging technology
+        to solve local problems.
+      </SectionTitle>
+
+      <Benefits data={benefitOne} />
+      <Benefits imgPos="right" data={benefitTwo} />
+
+      <SectionTitle
+        preTitle="Watch a video"
+        title="Learn how to fullfil your needs"
+      >
+        This section is to highlight a promo or demo video of your product.
+        Analysts says a landing page with video has 3% more conversion rate. So,
+        don&apos;t forget to add one. Just like this.
+      </SectionTitle>
+
+      <Video videoId="fZ0D0cnR88E" />
+
+      <SectionTitle
+        preTitle="Testimonials"
+        title="Here's what our customers said"
+      >
+        Testimonials is a great way to increase the brand trust and awareness.
+        Use this section to highlight your popular customers.
+      </SectionTitle>
+
+      <Testimonials />
+
+      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
+        Answer your customers possible questions here, it will increase the
+        conversion rate as well as support or chat requests.
+      </SectionTitle>
+
+      <Faq />
+    </Container>
+  );
 }
