@@ -3,21 +3,11 @@
 @tailwind utilities;
 
 
-/* @layer base {
-   html,
-   body {
-     @apply dark:bg-trueGray-900;
-   }
- }
- /* html,
- body {
-   @apply dark:bg-trueGray-900;
- } */
-
-
- @layer base {
-  html,
-  body {
-    @apply dark:bg-gray-800;
-  }
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
